@@ -1,1 +1,1 @@
-Access the website on https://muhammad-suhaili-week1.netlify.app/
+Netlify Site: https://muhammad-suhaili-week2.netlify.app/
