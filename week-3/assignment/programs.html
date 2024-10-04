@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Programs</title>
+  </head>
+
+  <body>
+    <header>
+      <img src="logo.svg" alt="logo" class="logo" />
+      <nav class="navbar">
+        <ul class="nav__links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="register.html">Register</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+
+
+    <div class="programs-content">
+      <h2><u>Our Programs</u></h2>
+
+      <!-- Filter buttons -->
+      <div class="filter-container">
+        <button data-category="All">All</button>
+        <button data-category="Workshops">Workshops</button>
+        <button data-category="Technical">Technical</button>
+        <button data-category="Leadership">Leadership</button>
+      </div>
+
+      <!-- Search bar -->
+      <div class="search-container">
+        <input
+          type="text"
+          id="search-bar"
+          placeholder="Search for programs..."
+        />
+      </div>
+
+      <!-- Container for program cards -->
+      <div id="program-cards-container">
+      </div>
+
+    </div>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="scripts.js"></script>
+  </body>
+</html>

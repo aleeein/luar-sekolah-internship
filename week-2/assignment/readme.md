@@ -1,1 +1,0 @@
-Netlify Site: https://muhammad-suhaili-week2.netlify.app/
