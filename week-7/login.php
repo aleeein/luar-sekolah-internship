@@ -6,23 +6,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Fetch user by email
     $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->execute([$email]);
     $user = $stmt->fetch();
 
-    // Verify password and set session variables if login is successful
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['id'];
-        $_SESSION['user_role'] = $user['role'];  // Store user role in session
-
-        // Redirect based on user role
-        if ($user['role'] === 'admin') {
-            header("Location: admin_dashboard.php"); // Redirect admin to dashboard
-        } else {
-            header("Location: index.php"); // Redirect regular users to the main page
-        }
-        exit();
+        echo "<script>alert('Login successful!'); window.location.href = 'index.php';</script>";
     } else {
         echo "<script>alert('Invalid email or password');</script>";
     }

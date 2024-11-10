@@ -15,7 +15,7 @@ if (isset($_SESSION['user_id'])) {
 if (isset($_GET['course_id']) && isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
     $course_id = $_GET['course_id'];
-
+    
     // Enroll the user in the course
     $stmt = $pdo->prepare("INSERT INTO enrollments (user_id, course_id) VALUES (?, ?)");
     $stmt->execute([$user_id, $course_id]);
@@ -61,17 +61,11 @@ $testimonials = $testimonials_query->fetchAll(PDO::FETCH_ASSOC);
                     <li><a href="index.php">Home</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#blog">Blog</a></li>
-
-                    <!-- Show 'Manage Data' link only for admins -->
-                    <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'): ?>
-                        <li><a href="admin_dashboard.php" class="btn">Manage Data</a></li>
-                    <?php endif; ?>
-
-                    <!-- Show login/logout based on session status -->
                     <?php if (isset($_SESSION['user_id'])): ?>
+                        <li><a href="#" class="welcome">Welcome, <?php echo htmlspecialchars($userName); ?></a></li>
                         <li><a href="logout.php" class="btn">Logout</a></li>
                     <?php else: ?>
-                        <li><a href="login.php" class="btn">Login</a></li>
+                        <li><a href="login.php" class="btn"><i class="fas fa-user"></i> Login</a></li>
                     <?php endif; ?>
                 </ul>
             </div>
@@ -260,7 +254,7 @@ $testimonials = $testimonials_query->fetchAll(PDO::FETCH_ASSOC);
                     $courses_query = $pdo->prepare("SELECT * FROM courses WHERE category_id = ?");
                     $courses_query->execute([$category_id]);
                     $courses = $courses_query->fetchAll(PDO::FETCH_ASSOC);
-
+                    
                     foreach ($courses as $course): ?>
                         <div class="course-card" data-category="<?php echo strtolower($category['name']); ?>">
                             <h4><?php echo htmlspecialchars($course['title']); ?></h4>

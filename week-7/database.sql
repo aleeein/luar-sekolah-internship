@@ -13,13 +13,6 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL
 );
 
--- Add role column to users table
-ALTER TABLE users ADD COLUMN role ENUM('user', 'admin') DEFAULT 'user';
-
--- Add admin user
-INSERT INTO users (full_name, username, gender, phone, email, password, role) 
-VALUES ('admin', 'admin', 'Male', '12345', 'admin@gmail.com', 'admin', 'admin');
-
 -- Table to store enrollments for users in specific courses
 CREATE TABLE enrollments (
     id INT AUTO_INCREMENT PRIMARY KEY,
